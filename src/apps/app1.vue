@@ -1,9 +1,5 @@
 <style lang="less">
-    .hello {
-      h1 {
-        color : red;
-      }
-    }
+
 </style>
 
 <template>
@@ -13,11 +9,11 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      msg: 'Hello World!'
+  export default {
+    data () {
+        return {
+          msg: 'app1'
+        }
     }
   }
-}
 </script>
