@@ -1,7 +1,13 @@
 import Vue from 'vue';
-import home from './App';
 import page from 'page';
 
+//动态载入所需要的组件
+let apps = ["home","app1"],components={};
+apps.forEach(function(app){
+  components[app] = function (resolve) {
+    require(['./apps/'+app], resolve)
+  };
+});
 let app = new Vue({
     el: 'body',
 
@@ -15,14 +21,16 @@ let app = new Vue({
         };
     },
 
-    components: {
+   /* components: {
         home: function (resolve) {
           require(['./App'], resolve)
         },
-        app1: function (resolve) {
+      /!*app1: function (resolve) {
           require(['./apps/app1'], resolve)
-        }
-    },
+        }*!/
+    },*/
+
+    components : Object.assign({},components),
 
     ready  : function() {
       page.start({ dispatch :true });
@@ -39,6 +47,8 @@ let app = new Vue({
         self.view = 'app1';
       });
         /*page('/:app/:any*', this.router);*/
+
+
     },
 
     methods : {
