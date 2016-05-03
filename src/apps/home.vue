@@ -1,6 +1,7 @@
 <style src="../../node_modules/bootstrap/dist/css/bootstrap.css"></style>
 <template>
-  <div id="app" class="container">
+    <div id="app"></div>
+  <!--<div id="app" class="container">
       home
       <div class="row">
         <div class="col-xs-2">
@@ -15,10 +16,11 @@
             </table>
         </div>
       </div>
-  </div>
+  </div>-->
 </template>
 
 <script>
+
 import Hello from '../components/Hello'
 console.log("app main");
 export default {
@@ -29,21 +31,6 @@ export default {
 </script>
 
 <style>
-html {
-  height: 100%;
-}
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#app {
-  margin-top: -100px;
-  font-family: Helvetica, sans-serif;
-  text-align: center;
-}
 
 </style>
 

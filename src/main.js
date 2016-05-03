@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import page from 'page';
+import appHeader from './components/appHeader';
 
 //动态载入所需要的组件
 let apps = ["home","app1"],components={};
@@ -15,7 +16,7 @@ let app = new Vue({
 
     data : function () {
         return {
-            view    : "",//主视图
+            view    : "home",//主视图
             page    : "",//保存page对象
             appData : {} //保存url相关信息
         };
@@ -30,7 +31,9 @@ let app = new Vue({
         }*!/
     },*/
 
-    components : Object.assign({},components),
+    components : Object.assign({
+        appHeader : appHeader
+    },components),
 
     ready  : function() {
       page.start({ dispatch :true });
