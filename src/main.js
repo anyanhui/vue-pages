@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import page from 'page';
 import appHeader from './components/appHeader';
+import appMenu from './components/menu';
 
 //动态载入所需要的组件
 let apps = ["home","app1"],components={};
@@ -32,7 +33,8 @@ let app = new Vue({
     },*/
 
     components : Object.assign({
-        appHeader : appHeader
+        appHeader : appHeader,
+        appMenu   : appMenu
     },components),
 
     ready  : function() {

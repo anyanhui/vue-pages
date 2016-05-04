@@ -9,11 +9,12 @@
 </template>
 
 <script>
+  console.log("app1");
   export default {
     data () {
-        return {
-          msg: 'app1'
-        }
+    return {
+      msg: 'app1'
     }
+  }
   }
 </script>

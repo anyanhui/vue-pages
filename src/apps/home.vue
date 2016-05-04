@@ -1,22 +1,42 @@
 <style src="../../node_modules/bootstrap/dist/css/bootstrap.css"></style>
+<style>
+  .app-content {
+    width : 100px;
+    height : 100px;
+    background: #d58512;
+    transition : .6s cubic-bezier(0.42,0,1,1);
+    position : relative;
+    top : 50px;
+    left : 50px;
+    float : left;
+    margin-left : 15px;
+  }
+  .app-content:hover {
+    width : 200px;
+    height : 200px;
+    top : 0px;
+    left : 0px;
+    z-index : 1000;
+  }
+</style>
 <template>
-    <div id="app"></div>
-  <!--<div id="app" class="container">
-      home
-      <div class="row">
-        <div class="col-xs-2">
-          left
+    <div id="app">
+        <div class="app-content">
+          主页
         </div>
-        <div class="col-xs-10">
-            <table class="table">
-              <tr>
-                <td>aaa</td>
-                <td>aa</td>
-              </tr>
-            </table>
-        </div>
+      <div class="app-content">
+        主页
       </div>
-  </div>-->
+      <div class="app-content">
+        主页
+      </div>
+      <div class="app-content">
+        主页
+      </div>
+      <div class="app-content">
+        主页
+      </div>
+    </div>
 </template>
 
 <script>
@@ -29,8 +49,4 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
 
