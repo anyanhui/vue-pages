@@ -7,7 +7,7 @@ import appMenu from './components/menu';
 let apps = ["home","app1"],components={};
 apps.forEach(function(app){
   components[app] = function (resolve) {
-    require(['./apps/'+app], resolve)
+    require(['./apps/'+app], resolve);
   };
 });
 let app = new Vue({
@@ -45,14 +45,8 @@ let app = new Vue({
         var self = this,
           baseUrl = '/';
         /*page.base(baseUrl);*/
-        page('/home', function () {
-            self.view = 'home';
-        });
-      page('/app1', function () {
-        self.view = 'app1';
-      });
-        /*page('/:app/:any*', this.router);*/
-
+        page('/:app/:any*', this.router);
+        this.page = page;
 
     },
 
@@ -61,17 +55,17 @@ let app = new Vue({
           console.log("xxxxxxxxxxxxaax");
           var app = ctx.params.app;
           var any = ctx.params.any;
-         /* if(app) {
+          if(app) {
               if(app !== this.view) {
                 console.log(app);
-                /!*require(['apps/' + app], function(conf) {
+                /*require(['apps/' + app], function(conf) {
                   console.log(conf);
                   Vue.component(app, conf.default);
                   this.view = app;
                   this.appData.uri = any;
                   this.appData.queryString = ctx.querystring;
                   this.$broadcast("setAppView",any);
-                }.bind(this));*!/
+                }.bind(this));*/
                 this.view = app;
                 this.appData.uri = any;
                 this.appData.queryString = ctx.querystring;
@@ -84,7 +78,7 @@ let app = new Vue({
 
               this.appData.uri = any;
               this.appData.queryString = ctx.querystring;
-            }*/
+            }
         }
     }
 });
