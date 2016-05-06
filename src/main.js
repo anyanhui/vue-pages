@@ -4,10 +4,21 @@ import appHeader from './components/appHeader';
 import appMenu from './components/menu';
 
 //动态载入所需要的组件
-let apps = ["home","app1"],components={};
+let apps = [
+  {
+    name : "home",
+    path : "home"
+  },
+  {
+    name : "app1",
+    path : "app1/app1"
+  }
+],components={};
+//默认加载./apps下的组件，如果需要加载其他路径下的，只需要在上面的apps中加一个 base属性，值为该组件的相对路径
 apps.forEach(function(app){
-  components[app] = function (resolve) {
-    require(['./apps/'+app], resolve);
+  components[app.name] = function (resolve) {
+    var base = app.base || './apps/';
+    require([base+app.path], resolve);
   };
 });
 let app = new Vue({
@@ -47,7 +58,7 @@ let app = new Vue({
         /*page.base(baseUrl);*/
         page('/:app/:any*', this.router);
         this.page = page;
-
+        console.log(appMenu.menus);
     },
 
     methods : {

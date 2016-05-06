@@ -111,7 +111,6 @@
               parent.selected = true;
           }
           menu.selected = true;
-
         },
         getParent : function(parentId){
           for(var i=0;i<this.menus.length;i++){
