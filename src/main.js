@@ -2,18 +2,10 @@ import Vue from 'vue';
 import page from 'page';
 import appHeader from './components/appHeader';
 import appMenu from './components/menu';
+import apps from './appConfig';
 
 //动态载入所需要的组件
-let apps = [
-  {
-    name : "home",
-    path : "home"
-  },
-  {
-    name : "app1",
-    path : "app1/app1"
-  }
-],components={};
+let apps = apps,components={};
 //默认加载./apps下的组件，如果需要加载其他路径下的，只需要在上面的apps中加一个 base属性，值为该组件的相对路径
 apps.forEach(function(app){
   components[app.name] = function (resolve) {
