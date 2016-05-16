@@ -5,14 +5,8 @@ import appMenu from './components/menu';
 import apps from './appConfig';
 
 //动态载入所需要的组件
-let apps = apps,components={};
-//默认加载./apps下的组件，如果需要加载其他路径下的，只需要在上面的apps中加一个 base属性，值为该组件的相对路径
-apps.forEach(function(app){
-  components[app.name] = function (resolve) {
-    var base = app.base || './apps/';
-    require([base+app.path], resolve);
-  };
-});
+let components=apps.init();
+
 let app = new Vue({
     el: 'body',
 

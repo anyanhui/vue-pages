@@ -29,21 +29,33 @@
             children : [
               {
                 id : "dropdown1",
-                path : "dropdown1",
+                path : "dropdown/dropdown1",
                 name : "下拉菜单1",
                 selected : false,
                 parent : "dropdown"
               },
               {
                 id : "dropdown2",
-                path : "dropdown2",
+                path : "dropdown/dropdown2",
                 name : "下拉菜单2",
                 selected : false,
                 parent : "dropdown"
               }
             ]
           }
-        ]
+        ],
+        init : function() {
+          var components = {};
+          //默认加载./apps下的组件，如果需要加载其他路径下的，只需要在上面的apps中加一个 base属性，值为该组件的相对路径
+          this.apps.forEach(function(app){
+            components[app.name] = function (resolve) {
+              var base = app.base || './apps/';
+              require([base+app.path], resolve);
+            };
+          });
+          return components;
+        }
+
 
     }
 </script>

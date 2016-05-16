@@ -39,16 +39,26 @@
           alert("11");<br/>
       }
     </code>
+    <code v-text="childMsg"></code>
   </div>
+  <hello v-ref:hello></hello>
 </template>
 
 <script>
-  console.log("app1");
+  import hello from '../../components/Hello';
   export default {
-    data () {
-    return {
-      msg: 'app1'
+    data : function() {
+        return {
+            msg: 'app1'
+        }
+    },
+    components : {
+      hello : hello
+    },
+    computed : {
+        childMsg : function(){
+          return this.$refs.hello.showMsg;
+        }
     }
-  }
   }
 </script>
